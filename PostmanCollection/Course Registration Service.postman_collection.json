@@ -1,0 +1,230 @@
+{
+	"info": {
+		"_postman_id": "3443a054-6a71-428e-be58-9f5d0fa50659",
+		"name": "Course Registration Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1461850"
+	},
+	"item": [
+		{
+			"name": "Get All Course Batches",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8082/batches/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8082",
+					"path": [
+						"batches",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Course Registrations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8082/registrations/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8082",
+					"path": [
+						"registrations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Batch with Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8082/batches/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8082",
+					"path": [
+						"batches",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Registration with Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8082/registrations/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8082",
+					"path": [
+						"registrations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a course batch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseid\": 1, \r\n    \"start_date\": \"2023-07-21\",\r\n    \"end_date\": \"2023-12-04\",\r\n    \"professor\": \"Shreyas Rao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8082/batches/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8082",
+					"path": [
+						"batches",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a course registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userid\": 1,\r\n    \"courseid\": 1,\r\n    \"batchid\" : 1,\r\n    \"registration_date\": \"2023-07-14\",\r\n    \"payment_mode\": \"Online\",\r\n    \"payment_status\": \"Paid\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8082/registrations/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8082",
+					"path": [
+						"registrations",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Course Batch",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Saema Mastim\", \r\n    \"email\": \"itssaema@gmail.com\",\r\n    \"address\": \"mumbai\",\r\n    \"mobile\": 9890012345,\r\n    \"gender\": \"F\",\r\n    \"age\": 32\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8082/batches/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8082",
+					"path": [
+						"batches",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Course Registration",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Saema Mastim\", \r\n    \"email\": \"itssaema@gmail.com\",\r\n    \"address\": \"mumbai\",\r\n    \"mobile\": 9890012345,\r\n    \"gender\": \"F\",\r\n    \"age\": 32\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8082/registrations/2",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8082",
+					"path": [
+						"registrations",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
