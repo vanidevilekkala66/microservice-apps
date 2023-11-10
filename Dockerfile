@@ -19,8 +19,6 @@ COPY ./UserService/app/service /app/UserService/service
 COPY ./CourseService/app/service /app/CourseService/service
 COPY ./CourseRegistration/app/service /app/CourseRegistration/service
 
-# Expose ports if needed
-# EXPOSE 8080  # Adjust the port based on your application
 
 # Define an entry point (this might vary based on your specific requirements)
 CMD ["uvicorn", "UserService.app.service.userservice.py:app", "--host", "0.0.0.0", "--port", "80"]
