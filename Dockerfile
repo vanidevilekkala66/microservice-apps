@@ -1,24 +1,25 @@
 # Use a base image with the necessary dependencies
 FROM python:3.9
-
+RUN pip install supervisor
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy the requirements file to the container
-COPY ./UserService/app/requirements.txt /app/UserService/requirements.txt
-COPY ./CourseService/app/requirements.txt /app/CourseService/requirements.txt
-COPY ./CourseRegistration/app/requirements.txt /app/CourseRegistration/requirements.txt
+COPY ./CourseRegistration/app/requirements.txt /app/requirements.txt
 
 # Install dependencies for each service
-RUN pip install --no-cache-dir --upgrade -r /app/UserService/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /app/CourseService/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /app/CourseRegistration/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 
 # Copy the application code for each service into the container
 COPY ./UserService/app/service /app/UserService/service
 COPY ./CourseService/app/service /app/CourseService/service
 COPY ./CourseRegistration/app/service /app/CourseRegistration/service
 
+# Expose the ports
+EXPOSE 8080
+EXPOSE 8081
+EXPOSE 8082
 
-# Define an entry point (this might vary based on your specific requirements)
-CMD ["uvicorn", "UserService.app.service.userservice.py:app", "--host", "0.0.0.0", "--port", "80"]
+COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY ./startup.sh /app/startup.sh
+ENTRYPOINT ["bash", "/app/startup.sh"]

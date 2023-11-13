@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  scalable-services:
+    build: .
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "8082:8082"
+    depends_on:
+      - db
+      - coursedb
+      - registrationdb
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=userservice
+
+
+  coursedb:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=courseservice
+  registrationdb:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=courseregistrationservice
+
+
+
+
